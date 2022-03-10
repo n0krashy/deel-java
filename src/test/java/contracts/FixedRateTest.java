@@ -29,7 +29,7 @@ public class FixedRateTest {
 	String fixedRateButtonSelector, contractNameSelector, paymentSelector, clauseSelector, createButtonSelector,
 			nextButtonSelector;
 
-	@BeforeClass
+	@BeforeClass(description = "Configure web driver before test")
 	public static void initializeSelenium() {
 		WebDriverManager.firefoxdriver().setup();
 		driver = new FirefoxDriver();
@@ -46,7 +46,7 @@ public class FixedRateTest {
 		// enter email
 		driver.findElement(By.xpath("//input[@placeholder='Type your email']")).sendKeys("14p8144@eng.asu.edu.eg");
 		// enter password
-		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Sniper78**");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("@tKyTTPBB5Y4RRZ");
 		// click sign in
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		// wait for nextpage to load

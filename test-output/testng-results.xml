@@ -2,132 +2,132 @@
 <testng-results ignored="0" total="23" passed="23" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-03-10T05:53:52 EET" name="Suite" finished-at="2022-03-10T05:54:22 EET" duration-ms="30120">
+  <suite started-at="2022-03-10T19:55:57 EET" name="Suite" finished-at="2022-03-10T19:56:33 EET" duration-ms="35430">
     <groups>
     </groups>
-    <test started-at="2022-03-10T05:53:52 EET" name="Deel Parallel Test" finished-at="2022-03-10T05:54:22 EET" duration-ms="30120">
-      <class name="contracts.PayAsYouGo">
-        <test-method is-config="true" signature="initializeSelenium()[pri:0, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:53:52 EET" name="initializeSelenium" finished-at="2022-03-10T05:53:58 EET" duration-ms="5801" status="PASS">
+    <test started-at="2022-03-10T19:55:57 EET" name="Deel Parallel Test" finished-at="2022-03-10T19:56:33 EET" duration-ms="35430">
+      <class name="contracts.MilestoneTest">
+        <test-method is-config="true" signature="initializeSelenium()[pri:0, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:55:58 EET" name="initializeSelenium" finished-at="2022-03-10T19:56:03 EET" duration-ms="5961" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeSelenium -->
-        <test-method signature="login()[pri:0, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:53:58 EET" name="login" finished-at="2022-03-10T05:54:11 EET" duration-ms="13216" status="PASS">
+        <test-method signature="login()[pri:0, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:03 EET" name="login" finished-at="2022-03-10T19:56:22 EET" duration-ms="18054" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="goToCreate()[pri:1, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:11 EET" name="goToCreate" finished-at="2022-03-10T05:54:12 EET" duration-ms="1283" status="PASS">
+        <test-method signature="goToCreate()[pri:1, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:22 EET" name="goToCreate" finished-at="2022-03-10T19:56:22 EET" duration-ms="851" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- goToCreate -->
-        <test-method signature="selectContractType()[pri:2, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:12 EET" name="selectContractType" finished-at="2022-03-10T05:54:14 EET" duration-ms="1404" status="PASS">
+        <test-method signature="selectContractType()[pri:2, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:22 EET" name="selectContractType" finished-at="2022-03-10T19:56:23 EET" duration-ms="428" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- selectContractType -->
-        <test-method signature="fillTheFirstPage()[pri:3, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:14 EET" name="fillTheFirstPage" finished-at="2022-03-10T05:54:17 EET" duration-ms="2912" status="PASS">
+        <test-method signature="fillTheFirstPage()[pri:3, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:23 EET" name="fillTheFirstPage" finished-at="2022-03-10T19:56:26 EET" duration-ms="3049" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillTheFirstPage -->
-        <test-method signature="fillPayPage()[pri:4, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:17 EET" name="fillPayPage" finished-at="2022-03-10T05:54:19 EET" duration-ms="1942" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- fillPayPage -->
-        <test-method signature="firstPaymentPage()[pri:5, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:19 EET" name="firstPaymentPage" finished-at="2022-03-10T05:54:19 EET" duration-ms="353" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- firstPaymentPage -->
-        <test-method signature="addSpecialClause()[pri:6, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:19 EET" name="addSpecialClause" finished-at="2022-03-10T05:54:20 EET" duration-ms="649" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addSpecialClause -->
-        <test-method signature="createContract()[pri:7, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:20 EET" name="createContract" finished-at="2022-03-10T05:54:21 EET" duration-ms="1841" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createContract -->
-        <test-method is-config="true" signature="TearDownClass()[pri:0, instance:contracts.PayAsYouGo@7ce3cb8e]" started-at="2022-03-10T05:54:21 EET" name="TearDownClass" finished-at="2022-03-10T05:54:22 EET" duration-ms="676" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDownClass -->
-      </class> <!-- contracts.PayAsYouGo -->
-      <class name="contracts.FixedRate">
-        <test-method is-config="true" signature="initializeSelenium()[pri:0, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:53:52 EET" name="initializeSelenium" finished-at="2022-03-10T05:53:58 EET" duration-ms="5801" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeSelenium -->
-        <test-method signature="login()[pri:0, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:53:58 EET" name="login" finished-at="2022-03-10T05:54:10 EET" duration-ms="12176" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="goToCreate()[pri:1, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:10 EET" name="goToCreate" finished-at="2022-03-10T05:54:11 EET" duration-ms="1234" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToCreate -->
-        <test-method signature="goToFixedTerm()[pri:2, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:11 EET" name="goToFixedTerm" finished-at="2022-03-10T05:54:13 EET" duration-ms="1404" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToFixedTerm -->
-        <test-method signature="fillTheFirstPage()[pri:3, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:13 EET" name="fillTheFirstPage" finished-at="2022-03-10T05:54:16 EET" duration-ms="3180" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- fillTheFirstPage -->
-        <test-method signature="fillPayPage()[pri:4, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:16 EET" name="fillPayPage" finished-at="2022-03-10T05:54:17 EET" duration-ms="1617" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- fillPayPage -->
-        <test-method signature="firstPaymentPage()[pri:5, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:17 EET" name="firstPaymentPage" finished-at="2022-03-10T05:54:18 EET" duration-ms="305" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- firstPaymentPage -->
-        <test-method signature="addSpecialClause()[pri:6, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:18 EET" name="addSpecialClause" finished-at="2022-03-10T05:54:18 EET" duration-ms="644" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addSpecialClause -->
-        <test-method signature="createContract()[pri:7, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:18 EET" name="createContract" finished-at="2022-03-10T05:54:20 EET" duration-ms="1834" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createContract -->
-        <test-method is-config="true" signature="TearDownClass()[pri:0, instance:contracts.FixedRate@1b1473ab]" started-at="2022-03-10T05:54:20 EET" name="TearDownClass" finished-at="2022-03-10T05:54:21 EET" duration-ms="691" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDownClass -->
-      </class> <!-- contracts.FixedRate -->
-      <class name="contracts.Milestone">
-        <test-method is-config="true" signature="initializeSelenium()[pri:0, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:53:52 EET" name="initializeSelenium" finished-at="2022-03-10T05:53:58 EET" duration-ms="5801" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initializeSelenium -->
-        <test-method signature="login()[pri:0, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:53:58 EET" name="login" finished-at="2022-03-10T05:54:10 EET" duration-ms="12237" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="goToCreate()[pri:1, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:10 EET" name="goToCreate" finished-at="2022-03-10T05:54:11 EET" duration-ms="1156" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- goToCreate -->
-        <test-method signature="selectContractType()[pri:2, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:11 EET" name="selectContractType" finished-at="2022-03-10T05:54:12 EET" duration-ms="423" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- selectContractType -->
-        <test-method signature="fillTheFirstPage()[pri:3, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:12 EET" name="fillTheFirstPage" finished-at="2022-03-10T05:54:15 EET" duration-ms="3268" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- fillTheFirstPage -->
-        <test-method signature="fillTheSecondPage()[pri:4, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:15 EET" name="fillTheSecondPage" finished-at="2022-03-10T05:54:16 EET" duration-ms="981" status="PASS">
+        <test-method signature="fillTheSecondPage()[pri:4, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:26 EET" name="fillTheSecondPage" finished-at="2022-03-10T19:56:27 EET" duration-ms="1267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- fillTheSecondPage -->
-        <test-method signature="addSpecialClause()[pri:5, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:16 EET" name="addSpecialClause" finished-at="2022-03-10T05:54:16 EET" duration-ms="305" status="PASS">
+        <test-method signature="addSpecialClause()[pri:5, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:27 EET" name="addSpecialClause" finished-at="2022-03-10T19:56:28 EET" duration-ms="354" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addSpecialClause -->
-        <test-method signature="createContract()[pri:6, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:16 EET" name="createContract" finished-at="2022-03-10T05:54:19 EET" duration-ms="2338" status="PASS">
+        <test-method signature="createContract()[pri:6, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:28 EET" name="createContract" finished-at="2022-03-10T19:56:30 EET" duration-ms="2365" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createContract -->
-        <test-method is-config="true" signature="TearDownClass()[pri:0, instance:contracts.Milestone@10e92f8f]" started-at="2022-03-10T05:54:19 EET" name="TearDownClass" finished-at="2022-03-10T05:54:19 EET" duration-ms="702" status="PASS">
+        <test-method is-config="true" signature="TearDownClass()[pri:0, instance:contracts.MilestoneTest@27462a88]" started-at="2022-03-10T19:56:30 EET" name="TearDownClass" finished-at="2022-03-10T19:56:31 EET" duration-ms="692" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDownClass -->
-      </class> <!-- contracts.Milestone -->
+      </class> <!-- contracts.MilestoneTest -->
+      <class name="contracts.PayAsYouGoTest">
+        <test-method is-config="true" signature="initializeSelenium()[pri:0, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:55:58 EET" name="initializeSelenium" finished-at="2022-03-10T19:56:03 EET" duration-ms="5961" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeSelenium -->
+        <test-method signature="login()[pri:0, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:03 EET" name="login" finished-at="2022-03-10T19:56:16 EET" duration-ms="12729" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="goToCreate()[pri:1, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:16 EET" name="goToCreate" finished-at="2022-03-10T19:56:17 EET" duration-ms="874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToCreate -->
+        <test-method signature="selectContractType()[pri:2, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:17 EET" name="selectContractType" finished-at="2022-03-10T19:56:18 EET" duration-ms="901" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectContractType -->
+        <test-method signature="fillTheFirstPage()[pri:3, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:18 EET" name="fillTheFirstPage" finished-at="2022-03-10T19:56:22 EET" duration-ms="4094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillTheFirstPage -->
+        <test-method signature="fillPayPage()[pri:4, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:22 EET" name="fillPayPage" finished-at="2022-03-10T19:56:24 EET" duration-ms="2224" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillPayPage -->
+        <test-method signature="firstPaymentPage()[pri:5, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:24 EET" name="firstPaymentPage" finished-at="2022-03-10T19:56:25 EET" duration-ms="361" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstPaymentPage -->
+        <test-method signature="addSpecialClause()[pri:6, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:25 EET" name="addSpecialClause" finished-at="2022-03-10T19:56:25 EET" duration-ms="695" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addSpecialClause -->
+        <test-method signature="createContract()[pri:7, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:25 EET" name="createContract" finished-at="2022-03-10T19:56:27 EET" duration-ms="1980" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createContract -->
+        <test-method is-config="true" signature="TearDownClass()[pri:0, instance:contracts.PayAsYouGoTest@82de64a]" started-at="2022-03-10T19:56:27 EET" name="TearDownClass" finished-at="2022-03-10T19:56:28 EET" duration-ms="714" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDownClass -->
+      </class> <!-- contracts.PayAsYouGoTest -->
+      <class name="contracts.FixedRateTest">
+        <test-method is-config="true" signature="initializeSelenium()[pri:0, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:55:58 EET" name="initializeSelenium" description="Configure something before test" finished-at="2022-03-10T19:56:03 EET" duration-ms="5961" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initializeSelenium -->
+        <test-method signature="login()[pri:0, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:03 EET" name="login" description="Some detailed test description" finished-at="2022-03-10T19:56:22 EET" duration-ms="18178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="goToCreate()[pri:1, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:22 EET" name="goToCreate" finished-at="2022-03-10T19:56:23 EET" duration-ms="1289" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToCreate -->
+        <test-method signature="goToFixedTerm()[pri:2, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:23 EET" name="goToFixedTerm" finished-at="2022-03-10T19:56:24 EET" duration-ms="990" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- goToFixedTerm -->
+        <test-method signature="fillTheFirstPage()[pri:3, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:24 EET" name="fillTheFirstPage" finished-at="2022-03-10T19:56:27 EET" duration-ms="3332" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillTheFirstPage -->
+        <test-method signature="fillPayPage()[pri:4, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:27 EET" name="fillPayPage" finished-at="2022-03-10T19:56:29 EET" duration-ms="1589" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fillPayPage -->
+        <test-method signature="firstPaymentPage()[pri:5, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:29 EET" name="firstPaymentPage" finished-at="2022-03-10T19:56:29 EET" duration-ms="293" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- firstPaymentPage -->
+        <test-method signature="addSpecialClause()[pri:6, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:29 EET" name="addSpecialClause" finished-at="2022-03-10T19:56:30 EET" duration-ms="667" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addSpecialClause -->
+        <test-method signature="createContract()[pri:7, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:30 EET" name="createContract" finished-at="2022-03-10T19:56:32 EET" duration-ms="2386" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createContract -->
+        <test-method is-config="true" signature="TearDownClass()[pri:0, instance:contracts.FixedRateTest@23c30a20]" started-at="2022-03-10T19:56:32 EET" name="TearDownClass" finished-at="2022-03-10T19:56:33 EET" duration-ms="682" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDownClass -->
+      </class> <!-- contracts.FixedRateTest -->
     </test> <!-- Deel Parallel Test -->
   </suite> <!-- Suite -->
 </testng-results>
