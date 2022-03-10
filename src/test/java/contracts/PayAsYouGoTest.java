@@ -21,7 +21,7 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class PayAsYouGo {
+public class PayAsYouGoTest {
 
 	static WebDriver driver;
 	static WebDriverWait wait;

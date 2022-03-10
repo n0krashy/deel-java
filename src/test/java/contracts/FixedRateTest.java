@@ -21,12 +21,12 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Milestone {
+public class FixedRateTest {
 
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static JavascriptExecutor jse;
-	String contracrtTypeButtonSelector, contractNameSelector, currencySelector, clauseSelector, createButtonSelector,
+	String fixedRateButtonSelector, contractNameSelector, paymentSelector, clauseSelector, createButtonSelector,
 			nextButtonSelector;
 
 	@BeforeClass
@@ -62,19 +62,19 @@ public class Milestone {
 		// click on create a contract
 		driver.findElement(By.xpath("//p[normalize-space()='Create A Contract']")).click();
 		// assert that next page is reached
-		contracrtTypeButtonSelector = "a[class='anchor heap-start-milestone-contract'] div[class='box text-center height-100 contract-selector']";
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(contracrtTypeButtonSelector)));
+		fixedRateButtonSelector = "a[class='anchor heap-start-fixed-contract'] div[class='box text-center height-100 contract-selector']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(fixedRateButtonSelector)));
 		assertEquals("https://app.letsdeel.com/create", driver.getCurrentUrl());
 	}
 
 	@Test(priority = 2)
-	void selectContractType() {
-		// choose contract type
-		driver.findElement(By.cssSelector(contracrtTypeButtonSelector)).click();
+	void goToFixedTerm() {
+		// click on fixed rate
+		driver.findElement(By.cssSelector(fixedRateButtonSelector)).click();
 		// assert that next page is reached
 		contractNameSelector = "input[name='name']";
 		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(contractNameSelector)));
-		assertEquals("https://app.letsdeel.com/create/milestone", driver.getCurrentUrl());
+		assertEquals("https://app.letsdeel.com/create/fixed", driver.getCurrentUrl());
 	}
 
 	@Test(priority = 3)
@@ -87,6 +87,7 @@ public class Milestone {
 				.click();
 		driver.findElement(By.xpath("//div[contains(text(),'United States')]")).click();
 		// choose tax state
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div[data-qa='contractor-tax-residence-province']")));
 		driver.findElement(By.cssSelector("div[data-qa='contractor-tax-residence-province']")).click();
 		driver.findElement(By.xpath("//div[contains(text(),'Colorado')]")).click();
 		// write scope
@@ -111,35 +112,54 @@ public class Milestone {
 		handleCalendar(allDaysList, today);
 
 		// click next
-		driver.findElement(By.xpath("//button[@type='submit' and contains(@class, 'submit-general-info')]")).click();
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
 
 		// wait for next page to be loaded
-		currencySelector = "div[data-qa='currency-select']";
-		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(currencySelector)));
+		paymentSelector = "//input[@name='rate']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(paymentSelector)));
 	}
 
 	@Test(priority = 4)
-	void fillTheSecondPage() {
+	void fillPayPage() {
+		// set payment rate to 1000
+		driver.findElement(By.xpath(paymentSelector)).sendKeys("1000");
+
 		// select GBP in currency
-		driver.findElement(By.cssSelector(currencySelector)).click();
+		driver.findElement(By.cssSelector("div[data-qa='currency-select']")).click();
 		driver.findElement(By.xpath("//div[contains(text(),'GBP - British Pound')]")).click();
-		
-		driver.findElement(By.xpath("//input[@data-qa='milestone-description']")).sendKeys("First Milestone");
-		driver.findElement(By.xpath("//input[@data-qa='milestone-amount']")).sendKeys("100");
+
+		// change payment frequency to Weekly
+		driver.findElement(By.xpath("//div[contains(text(),'Monthly')]")).click();
+		driver.findElement(By.xpath("//div[contains(text(),'Weekly')]")).click();
 
 		// click next
-		driver.findElement(By.xpath("//button[@data-qa='next' and contains(@class, 'heap-create-contract-milestone-payment-details-next')]")).click();
+		driver.findElement(By.xpath("//button[@type='submit' and contains(@class, 'submit-payments-details')]")).click();
 
 		// wait for next page to be loaded
-		nextButtonSelector = "//button[@data-qa='next' and contains(@class, 'submit-extras heap-create-contract-milestone-benefits-extras-next')]";
+		nextButtonSelector = "//button[@type='submit' and contains(@class, 'submit-define-dates')]";
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(nextButtonSelector)));
 	}
 
 	@Test(priority = 5)
+	void firstPaymentPage() {
+		// click next
+		driver.findElement(By.xpath(nextButtonSelector)).click();
+
+		// wait for next page to be loaded
+		clauseSelector = "button[data-qa='add-a-special-clause']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(clauseSelector)));
+	}
+
+	@Test(priority = 6)
 	void addSpecialClause() {
+		// click on add a special clause button
+		driver.findElement(By.cssSelector(clauseSelector)).click();
+		// write a clause
+		driver.findElement(By.cssSelector(".textarea.pt-4.pr-7.pl-7.resizable.pb-4"))
+				.sendKeys("this is a special clause");
 		// click next
 		driver.findElement(
-				By.xpath(nextButtonSelector))
+				By.xpath("//div[normalize-space()='next']"))
 				.click();
 
 		// wait for next page to be loaded
@@ -147,14 +167,14 @@ public class Milestone {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(createButtonSelector)));
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 7)
 	void createContract() {
 		// click on create button
 		driver.findElement(By.xpath(createButtonSelector)).click();
 		
 		//assert contract is created and it's page has loaded
 		wait.until(
-				ExpectedConditions.elementToBeClickable(By.xpath("//div[normalize-space()='review & sign']")));
+				ExpectedConditions.elementToBeClickable(By.cssSelector(".button.heap-fixed-client-review-sign")));
 		assertTrue(driver.getCurrentUrl().contains("https://app.letsdeel.com/contract/"));
 	}
 	

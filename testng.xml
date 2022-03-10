@@ -3,9 +3,9 @@
 <suite name="Suite">
 	<test thread-count="3" parallel="classes" name="Deel Parallel Test">
 		<classes>
-			<class name="contracts.FixedRate" />
-			<class name="contracts.Milestone" />
-			<class name="contracts.PayAsYouGo" />
+			<class name="contracts.FixedRateTest" />
+			<class name="contracts.MilestoneTest" />
+			<class name="contracts.PayAsYouGoTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
