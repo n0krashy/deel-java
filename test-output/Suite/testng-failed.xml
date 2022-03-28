@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="classes" name="Deel Parallel Test(failed)">
+    <classes>
+      <class name="contracts.FixedRateTest">
+        <methods>
+          <include name="initializeSelenium"/>
+          <include name="goToFixedTerm"/>
+          <include name="TearDownClass"/>
+          <include name="addSpecialClause"/>
+          <include name="createContract"/>
+          <include name="login"/>
+          <include name="fillTheFirstPage"/>
+          <include name="firstPaymentPage"/>
+          <include name="fillPayPage"/>
+          <include name="goToCreate"/>
+        </methods>
+      </class> <!-- contracts.FixedRateTest -->
+      <class name="contracts.PayAsYouGoTest">
+        <methods>
+          <include name="initializeSelenium"/>
+          <include name="fillPayPage"/>
+          <include name="addSpecialClause"/>
+          <include name="login"/>
+          <include name="createContract"/>
+          <include name="fillTheFirstPage"/>
+          <include name="selectContractType"/>
+          <include name="goToCreate"/>
+          <include name="firstPaymentPage"/>
+          <include name="TearDownClass"/>
+        </methods>
+      </class> <!-- contracts.PayAsYouGoTest -->
+      <class name="contracts.MilestoneTest">
+        <methods>
+          <include name="goToCreate"/>
+          <include name="fillTheFirstPage"/>
+          <include name="selectContractType"/>
+          <include name="TearDownClass"/>
+          <include name="login"/>
+          <include name="initializeSelenium"/>
+          <include name="createContract"/>
+          <include name="fillTheSecondPage"/>
+          <include name="addSpecialClause"/>
+        </methods>
+      </class> <!-- contracts.MilestoneTest -->
+    </classes>
+  </test> <!-- Deel Parallel Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
