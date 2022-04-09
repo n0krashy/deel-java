@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Home {
 	WebDriver driver;
 	WebDriverWait wait;
+	final String URL = "https://app.letsdeel.com/";
 
 	@FindBy(xpath = "//button[@class='button button-close']")
 	WebElement closeButton;
@@ -32,6 +33,7 @@ public class Home {
 		PageFactory.initElements(driver, this);
 		// Defining Explicit Wait
 		wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+		waitForViewContractsButtonToBeVisible();
 	}
 
 	// Click on create contract button
@@ -56,6 +58,10 @@ public class Home {
 		this.acceptCookies();
 		// Click create button
 		this.createContract();
+	}
+
+	public String url(){
+		return URL;
 	}
 
 	public void waitForViewContractsButtonToBeVisible() {

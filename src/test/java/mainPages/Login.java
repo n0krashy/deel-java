@@ -13,13 +13,16 @@ public class Login {
 	By emailXpath = By.xpath("//input[@placeholder='Type your email']");
 	By passwordXpath = By.xpath("//input[@name='password']");
 	By submitXpath = By.xpath("//button[@type='submit']");
-	
+    private final String PAGE_URL = "https://app.letsdeel.com/login";
+
 	public Login(WebDriver driver) {
 		this.driver = driver;
+        driver.get(PAGE_URL);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 	}
 	
-	public String getLoginTitle() {
+	public String title() {
+        wait.until(ExpectedConditions.elementToBeClickable(emailXpath));
 		return driver.getTitle();
 	}
 	
@@ -39,7 +42,7 @@ public class Login {
     }
     
     public void login(String email,String password){
-    	wait.until(ExpectedConditions.elementToBeClickable(emailXpath));
+        wait.until(ExpectedConditions.elementToBeClickable(emailXpath));
         //Fill email
         this.setEmail(email);
         //Fill password

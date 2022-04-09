@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Create {
 	WebDriver driver;
 	WebDriverWait wait;
+	final String URL = "https://app.letsdeel.com/create";
 
 	@FindBy(css = "a[class='anchor heap-start-fixed-contract'] div[class='box text-center height-100 contract-selector']")
 	WebElement fixedRateButton;
@@ -29,6 +30,11 @@ public class Create {
 		PageFactory.initElements(driver, this);
 		// Defining Explicit Wait
 		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		waitForPageToLoad();
+	}
+
+	public String url(){
+		return URL;
 	}
 
 	// Click on fixed term button

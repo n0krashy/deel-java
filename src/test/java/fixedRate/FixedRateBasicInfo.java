@@ -3,6 +3,7 @@ package fixedRate;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,6 +16,7 @@ import assists.Calendar;
 public class FixedRateBasicInfo {
 	WebDriver driver;
 	WebDriverWait wait;
+	final String URL = "https://app.letsdeel.com/create/fixed";
 
 	@FindBy(name = "name")
 	WebElement contractNameElement;
@@ -41,6 +43,11 @@ public class FixedRateBasicInfo {
 		PageFactory.initElements(driver, this);
 		// Defining Explicit Wait
 		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		waitForPageToLoad();
+	}
+
+	public String url(){
+		return URL;
 	}
 
 	// set Contract Name
@@ -67,6 +74,17 @@ public class FixedRateBasicInfo {
 	public void setCalendar() {
 		Calendar calendar = new Calendar (driver);
 		calendar.clickCalendar(calendarElement);
+	}
+
+	public void fillMandatoryFields(String contractName, String country, String state, String scope, JavascriptExecutor jse){
+		setContractName(contractName);
+		setTaxCountry(country);
+		setTaxState(state);
+		setScope(scope);
+		// scroll down
+		jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		// set Calendar
+		setCalendar();
 	}
 
 	// Click on Submit button

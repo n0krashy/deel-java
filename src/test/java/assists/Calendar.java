@@ -12,11 +12,10 @@ import org.openqa.selenium.support.PageFactory;
 public class Calendar {
 	WebDriver driver;
 	
-	By todayXpath = By.xpath("//button[@class='react-calendar__tile react-calendar__tile--now react-calendar__tile--active react-calendar__tile--range react-calendar__tile--rangeStart react-calendar__tile--rangeEnd react-calendar__tile--rangeBothEnds react-calendar__month-view__days__day']");
-	By allDaysXpath = By.xpath("//button[contains(@class, 'react-calendar__tile') and contains(@class, 'react-calendar__month-view__days__day')]");
+	By todayXpath = By.cssSelector("button[class*='react-calendar__tile--now react-calendar__tile--active']");
+	By allDaysXpath = By.cssSelector("button[class*='react-calendar__month-view__days__day']");
 	By previousMonthButtonXpath = By.cssSelector("button[class='react-calendar__navigation__arrow react-calendar__navigation__prev-button']");
-	By previousMonthDaysXpath = By.xpath("//button[contains(@class, 'react-calendar__tile') and contains(@class, 'react-calendar__month-view__days__day')]");
-	
+
 	public Calendar(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -27,48 +26,39 @@ public class Calendar {
 		Action mouseOverAdmin = builder.moveToElement(calendarElement).build();
 		mouseOverAdmin.perform();
 		calendarElement.click();
-		getAllVisibleDays();
+		getPreviousDay();
 	}
 
-	public void getAllVisibleDays() {
-		// get all visible days list
-		List<WebElement> allDaysList = driver.findElements(allDaysXpath);
-		// get today
-		WebElement today = driver.findElement(todayXpath);
-		getPreviousDay(allDaysList, today);
+	public List<WebElement> getAllVisibleDays() {
+		return driver.findElements(allDaysXpath);
 	}
 
-	public void getPreviousDay(List<WebElement> allDaysList, WebElement today) {
-		int count = allDaysList.size();
-		WebElement prevElement = null, currElement, lastElement;
-		boolean firstDayInCalendar = false;
+	public WebElement today(){
+		return driver.findElement(todayXpath);
+	}
+
+	public WebElement previousMonthButton(){
+		return driver.findElement(previousMonthButtonXpath);
+	}
+
+	public void getPreviousDay() {
+		WebElement yesterday = null;
+		List<WebElement> allDaysList = getAllVisibleDays();
 		for (int i = 0; i < allDaysList.size(); i++) {
-			currElement = allDaysList.get(i);
-			if (currElement.getText().equals(today.getText())) {
-				// check if today is the first day in calendar, then we need to switch back
-				// months to the previous month
-				if (i == 0) {
-					firstDayInCalendar = true;
+			if(allDaysList.get(i).equals(today())){
+				if (i == 0){
+					previousMonthButton().click();
+					allDaysList = getAllVisibleDays();
+					int lastDayIndex = allDaysList.size()-1;
+					yesterday = allDaysList.get(lastDayIndex);
 				} else {
-					// choose yesterday directly
-					firstDayInCalendar = false;
-					prevElement = allDaysList.get(i - 1);
+					yesterday = allDaysList.get(i - 1);
 				}
 				break;
 			}
 		}
-
-		// if today is the first day in the calendar month, swipe back to the month
-		// before and select the last element
-		if (firstDayInCalendar) {
-			driver.findElement(previousMonthButtonXpath).click();
-			allDaysList = driver.findElements(previousMonthDaysXpath);
-			lastElement = allDaysList.get(count - 1);
-			lastElement.click();
-		} else {
-			// else select the previous day directly
-			prevElement.click();
-		}
+		assert yesterday != null;
+		yesterday.click();
 	}
 
 }

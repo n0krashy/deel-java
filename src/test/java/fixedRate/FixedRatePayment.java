@@ -34,6 +34,7 @@ public class FixedRatePayment {
 		PageFactory.initElements(driver, this);
 		// Defining Explicit Wait
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		waitForPageToLoad();
 	}
 	
 	public void setPayment(String payment) {
@@ -48,6 +49,15 @@ public class FixedRatePayment {
 	public void setFrequency(String frequency) {
 		paymentFrequency.click();
 		driver.findElement(By.xpath("//div[contains(text(),'" + frequency + "')]")).click();
+	}
+
+	public void fillMandatoryFields(String rate, String currency, String frequency){
+		// set payment rate to 1000
+		setPayment(rate);
+		// select GBP in currency
+		setCurrency(currency);
+		// change payment frequency to Weekly
+		setFrequency(frequency);
 	}
 	
 	// Click on Submit button

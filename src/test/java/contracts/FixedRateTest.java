@@ -5,11 +5,9 @@ import static org.testng.AssertJUnit.assertEquals;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -28,16 +26,26 @@ import mainPages.Login;
 
 public class FixedRateTest {
 
-	Login loginPage;
-	Home home;
-	Create create;
-	FixedRateBasicInfo fixedRateBasicInfo;
-	FixedRatePayment fixedRatePaymentPage;
+	static Login loginPage;
+	static Home home;
+	static Create create;
+	static FixedRateBasicInfo fixedRateBasicInfo;
+	static FixedRatePayment fixedRatePaymentPage;
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static JavascriptExecutor jse;
-	String fixedRateButtonSelector, contractNameSelector, paymentSelector, clauseSelector, createButtonSelector,
-			nextButtonSelector;
+	String contractType = "Fixed rate";
+	String contractName = "New Fixed rate";
+	String country = "United States";
+	String state = "Colorado";
+	String scope = "My scope";
+	String rate = "1000";
+	String currency = "GBP - British Pound";
+	String frequency = "Weekly";
+	String specialClause = "This is special Clause!";
+	String email = "14p8144@eng.asu.edu.eg";
+	String password = "@tKyTTPBB5Y4RRZ";
+
 
 	@BeforeClass(description = "Configure web driver before test")
 	public static void initializeSelenium() {
@@ -46,108 +54,81 @@ public class FixedRateTest {
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(50));
 		jse = (JavascriptExecutor) driver;
-		// Navigate to the URL page
-		driver.get("https://app.letsdeel.com/login");
 	}
 
-	@Test(priority = 0)
-	void login() {
+	@Test()
+	void navigateToLoginPage() {
 		loginPage = new Login(driver);
-		//Verify login page title
-	    String loginPageTitle = loginPage.getLoginTitle();
-	    assertTrue(loginPageTitle.contains("Deel - Payroll for remote teams"));
-		loginPage.login("14p8144@eng.asu.edu.eg", "@tKyTTPBB5Y4RRZ");
+		assertEquals(loginPage.title(), driver.getTitle());
 	}
 
 	@Test(priority = 1)
-	void goToCreate() {
+	void login(){
+		loginPage.login(email, password);
 		home = new Home(driver);
-		// wait for page to load
-		home.waitForViewContractsButtonToBeVisible();
 		// assert that we are in homepage
-		assertEquals("https://app.letsdeel.com/", driver.getCurrentUrl());
-		// go to create a contract
-		home.goToCreate();
+		assertEquals(home.url(), driver.getCurrentUrl());
 	}
 
 	@Test(priority = 2)
-	void goToFixedRate() {
-		// choose fixed rate
+	void goToCreate() {
+		// go to create a contract
+		home.goToCreate();
 		create = new Create(driver);
-		create.waitForPageToLoad();
 		// assert that we are in contract creation page
-		assertEquals("https://app.letsdeel.com/create", driver.getCurrentUrl());
-		// go to fixed rate contract
-		create.clickFixedRate();
+		assertEquals(create.url(), driver.getCurrentUrl());
 	}
 
 	@Test(priority = 3)
-	void fillTheFirstPage() {
+	void goToFixedRate() {
+		// go to fixed rate contract
+		create.clickFixedRate();
 		fixedRateBasicInfo = new FixedRateBasicInfo(driver);
-		fixedRateBasicInfo.waitForPageToLoad();
-		assertEquals("https://app.letsdeel.com/create/fixed", driver.getCurrentUrl());
-		fixedRateBasicInfo.setContractName("My contract");
-		fixedRateBasicInfo.setTaxCountry("United States");
-		fixedRateBasicInfo.setTaxState("Colorado");
-		fixedRateBasicInfo.setScope("My Scope");
-		// scroll down
-		jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		// set Calendar
-		fixedRateBasicInfo.setCalendar();
-		// click next
-		fixedRateBasicInfo.clickNext();
-
-		// wait for next page to be loaded
-		paymentSelector = "//input[@name='rate']";
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(paymentSelector)));
+		assertEquals(fixedRateBasicInfo.url(), driver.getCurrentUrl());
 	}
 
 	@Test(priority = 4)
-	void fillPaymentPage() {
-		fixedRatePaymentPage = new FixedRatePayment(driver);
-		fixedRatePaymentPage.waitForPageToLoad();
-		// set payment rate to 1000
-		fixedRatePaymentPage.setPayment("1000");
-		// select GBP in currency
-		fixedRatePaymentPage.setCurrency("GBP - British Pound");
-		// change payment frequency to Weekly
-		fixedRatePaymentPage.setFrequency("Weekly");
-
-		// click next
-		fixedRatePaymentPage.clickNext();
+	void fillTheFirstPage() {
+		fixedRateBasicInfo.fillMandatoryFields(contractName, country, state, scope, jse);
+		fixedRateBasicInfo.clickNext();
 	}
 
 	@Test(priority = 5)
+	void fillPaymentPage() {
+		fixedRatePaymentPage = new FixedRatePayment(driver);
+		fixedRatePaymentPage.fillMandatoryFields(rate, currency, frequency);
+		fixedRatePaymentPage.clickNext();
+	}
+
+	@Test(priority = 6)
 	void skipFirstPaymentPage() {
 		FixedRateFirstPayment fixedRateFirstPayment = new FixedRateFirstPayment(driver);
 		// click next
 		fixedRateFirstPayment.clickNext();
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 7)
 	void addSpecialClause() {
 		FixedRateSpecialClause fixedRateSpecialClause = new FixedRateSpecialClause(driver);
 		// click on add a special clause button
 		fixedRateSpecialClause.clickAddSpecialClause();
 		// write a clause
-		fixedRateSpecialClause.writeSpecialClause("This is special clause.");
+		fixedRateSpecialClause.writeSpecialClause(specialClause);
 		// click next
 		fixedRateSpecialClause.clickNext();
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 8)
 	void createContract() {
 		FixedRateCreateContract fixedRateCreateContract = new FixedRateCreateContract(driver);
 		fixedRateCreateContract.clickNext();
 	}
 	
-	@Test(priority = 8)
+	@Test(priority = 9)
 	void reachedContractPage() {
 		FixedRateContract fixedRateContract = new FixedRateContract(driver);
-		fixedRateContract.waitForLoading();
-		
 		//assert contract is created and it's page has loaded
-		assertTrue(driver.getCurrentUrl().contains("https://app.letsdeel.com/contract/"));
+		assertTrue(driver.getCurrentUrl().contains(fixedRateContract.url()));
 	}
 	
 	@AfterClass

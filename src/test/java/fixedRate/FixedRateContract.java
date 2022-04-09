@@ -13,6 +13,7 @@ public class FixedRateContract {
 
 	WebDriver driver;
 	WebDriverWait wait;
+	final String URL = "https://app.letsdeel.com/contract/";
 
 	@FindBy(css = ".button.heap-fixed-client-review-sign")
 	WebElement reviewSignButton;
@@ -24,6 +25,11 @@ public class FixedRateContract {
 		PageFactory.initElements(driver, this);
 		// Defining Explicit Wait
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		waitForLoading();
+	}
+
+	public String url(){
+		return URL;
 	}
 
 	public void waitForLoading() {
